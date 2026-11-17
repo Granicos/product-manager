@@ -11,12 +11,15 @@ export async function getProducts() {
 }
 
 export async function addProducts(product) {
+  const image = "https://placehold.co/400x250";
+  const available = true;
+  const fullProduct = { ...product, image, available };
   const response = await fetch(API_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(product),
+    body: JSON.stringify(fullProduct),
   });
 
   if (!response.ok) {
@@ -48,12 +51,15 @@ export async function deleteProduct(id) {
 }
 
 export async function updateProduct(id, product) {
+  const image = "https://placehold.co/400x250";
+  const available = true;
+  const fullProduct = { ...product, image, available };
   const response = await fetch(`${API_URL}/${id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(product),
+    body: JSON.stringify(fullProduct),
   });
 
   if (!response.ok) {

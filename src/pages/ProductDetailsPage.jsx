@@ -24,18 +24,17 @@ function ProductDetailsPage() {
       <img src={produit.image} alt={produit.name} width="300" />
       <p>{produit.description}</p>
       <p className="fw-bold text-primary">{produit.price}€</p>
-      <button className="btn btn-danger" onClick={handleDelete}>
-        Supprimer
-      </button>
-      <button
-        className="btn btn-warning"
-        onClick={() => navigate(`/edit/${id}`)}
-      >
-        Modifier
-      </button>
-      <Link to="/" className="btn btn-secondary">
-        Retour
-      </Link>
+      <div className="d-flex gap-2">
+        <button className="btn btn-danger" onClick={handleDelete}>
+          Supprimer
+        </button>
+        <Link to={`/product/edit/${produit.id}`} className="btn btn-warning">
+          Modifier
+        </Link>
+        <Link to="/" className="btn btn-secondary">
+          Retour
+        </Link>
+      </div>
     </div>
   );
 }

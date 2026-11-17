@@ -3,6 +3,7 @@ import NavBar from "./components/NavBar";
 import ProductPage from "./pages/ProductPage";
 import AddProductPage from "./pages/AddProductPage";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
+import EditProductPage from "./pages/EditProductPage";
 import { Navigate, Routes, Route } from "react-router";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<ProductPage />} />
         <Route path="/product/add" element={<AddProductPage />} />
         <Route path="/product/:id" element={<ProductDetailsPage />} />
+        <Route path="/product/edit/:id" element={<EditProductPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </>
