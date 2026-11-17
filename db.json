@@ -37,14 +37,6 @@
       "price": "499",
       "image": "https://placehold.co/400x250",
       "id": "Iadu2B0MXgY"
-    },
-    {
-      "name": "Iphone 6",
-      "description": "Téléphone reconditionné",
-      "price": "10",
-      "image": "https://placehold.co/400x250",
-      "available": true,
-      "id": "xDkMNPafso8"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

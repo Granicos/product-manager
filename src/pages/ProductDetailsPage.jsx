@@ -9,8 +9,11 @@ function ProductDetailsPage() {
 
   async function handleDelete(e) {
     e.preventDefault();
-    await deleteProduct(id);
-    await navigate("/");
+    //modal de confirmation
+    if (window.confirm("Êtes-vous sûr de vouloir supprimer ce produit ?")) {
+      await deleteProduct(id);
+      await navigate("/");
+    }
   }
   useEffect(() => {
     getProductById(id)
