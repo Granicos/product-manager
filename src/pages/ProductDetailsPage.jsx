@@ -1,0 +1,42 @@
+import { getProductById, deleteProduct } from "../services/productService";
+import { useState, useEffect } from "react";
+import { useParams, useNavigate, Link } from "react-router";
+
+function ProductDetailsPage() {
+  const [produit, setProduct] = useState([]);
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  async function handleDelete(e) {
+    e.preventDefault();
+    await deleteProduct(id);
+    await navigate("/");
+  }
+  useEffect(() => {
+    getProductById(id)
+      .then((data) => setProduct(data))
+      .catch((error) => console.error(error));
+  }, []);
+
+  return (
+    <div className="container mt-5">
+      <h2>{produit.name}</h2>
+      <img src={produit.image} alt={produit.name} width="300" />
+      <p>{produit.description}</p>
+      <p className="fw-bold text-primary">{produit.price}€</p>
+      <button className="btn btn-danger" onClick={handleDelete}>
+        Supprimer
+      </button>
+      <button
+        className="btn btn-warning"
+        onClick={() => navigate(`/edit/${id}`)}
+      >
+        Modifier
+      </button>
+      <Link to="/" className="btn btn-secondary">
+        Retour
+      </Link>
+    </div>
+  );
+}
+export default ProductDetailsPage;
